@@ -29,9 +29,9 @@ export default function Home({ searchParams }) {
 
   let entries = []
 
-  // check limits
-  if (start >= 0 && start < data.length)
-    entries = data.slice(start, end)
+
+  if (start >= 0 && start < data.length)   // check limits
+    entries = data.slice(start, end)       // return data slice
   
   return (
     <div className='flex flex-col gap-2 items-center'>
