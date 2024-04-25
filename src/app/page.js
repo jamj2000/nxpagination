@@ -42,6 +42,7 @@ export default function Home({ searchParams }) {
       <PaginationControls
         hasNextPage={end < data.length}
         hasPrevPage={start > 0}
+        total={data.length}
       />
     </div>
   )

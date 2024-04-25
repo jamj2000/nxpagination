@@ -3,7 +3,7 @@ import { useRouter, useSearchParams } from 'next/navigation'
 import { PAGE, PER_PAGE } from '@/app/pagination'
 
 
-function PaginationControls ({hasNextPage,  hasPrevPage}) {
+function PaginationControls ({hasNextPage,  hasPrevPage, total}) {
   const router = useRouter()
   const searchParams = useSearchParams()
 
@@ -22,7 +22,7 @@ function PaginationControls ({hasNextPage,  hasPrevPage}) {
       </button>
 
       <div>
-        {page} / {Math.ceil(10 / per_page)}
+        {page} / {Math.ceil(total / per_page)}
       </div>
 
       <button
