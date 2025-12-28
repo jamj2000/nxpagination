@@ -24,7 +24,7 @@ export default function Form({ action, title, articulo, disabled = false }) {
             <h1 className="uppercase text-center text-xl">{title}</h1>
 
             <fieldset disabled={disabled} className="grid place-items-center md:grid-cols-[30%_1fr] gap-4">
-                <img src={articulo?.imagen || (disabled ? '/imagen-vacia.png' : '/imagen.png')} />
+                <img src={articulo?.imagen || '/imagen-vacia.png'} />
 
                 <div className="flex flex-col py-4 w-full">
                     <label className="mt-4 grid grid-cols-[100px_1fr] items-center">
