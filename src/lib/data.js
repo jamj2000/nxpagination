@@ -4,6 +4,19 @@ import prisma from '@/lib/prisma'
 
 
 
+export async function obtenerArticulo(id) {
+    try {
+        const articulo = await prisma.articulo.findUnique({ where: { id: +id } })
+
+        return articulo
+    } catch (error) {
+        console.log(error)
+        return null;
+    }
+}
+
+
+
 
 export async function obtenerArticulosLote(offset, limit = 5) {
     try {

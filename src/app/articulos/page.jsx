@@ -8,12 +8,15 @@ import { PlusIcon } from "lucide-react";
 import { crearArticulo } from "@/lib/actions";
 
 
+const LIMIT = 5
+
+
 export default async function PagArticulos({ searchParams }) {
     let { page, limit } = await searchParams
 
     // Convertimos a número y ponemos valores por defecto
     page = (!page) ? 1 : +page
-    limit = (!limit) ? 10 : +limit
+    limit = (!limit) ? LIMIT : +limit
 
     const offset = (page - 1) * limit
 
@@ -22,13 +25,16 @@ export default async function PagArticulos({ searchParams }) {
 
     return (
         <div>
-            <h1 className='text-2xl text-slate-700 dark:text-slate-200 mb-8 border-b-2 border-blue-400'>
-                Todos los artículos
-            </h1>
+            <div className='flex gap-4 items-center mb-8 border-b-2 border-blue-400'>
+                <h1 className="text-2xl text-slate-700 dark:text-slate-200 ">Artículos</h1>
 
-            <Modal openElement={<IconoCrear />}>
-                <Form action={crearArticulo} title={"Crear artículo"} />
-            </Modal>
+                <Modal openElement={<IconoCrear />}>
+                    <Form action={crearArticulo} title={"Crear artículo"} />
+                </Modal>
+
+            </div>
+
+
 
             <Suspense fallback={<p>Cargando artículos...</p>}>
                 <TablaArticulos promesaArticulos={promesaArticulos} />

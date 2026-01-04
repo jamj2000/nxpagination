@@ -2,15 +2,18 @@ import { eliminarArticulo, modificarArticulo } from "@/lib/actions"
 import Form from "@/components/articulos/Formulario"
 import Modal from "@/components/Modal"
 import { PencilIcon, TrashIcon } from "lucide-react"
+import Link from "next/link"
 
 export default function FilaArticulo({ articulo }) {
 
-    const { nombre, descripcion, precio } = articulo
+    const { id, nombre, descripcion, precio } = articulo
 
     return (
 
         <tr className="mb-5 flex flex-col items-center justify-center p-2 odd:bg-white even:bg-gray-50 md:table-row dark:odd:bg-gray-900/50 dark:even:bg-gray-950"  >
-            <td className="p-3 capitalize">{nombre}</td>
+            <td className="p-3 capitalize">
+                <Link href={`/articulos/${id}`}>{nombre}</Link>
+            </td>
             <td className="p-3">{descripcion}</td>
             <td className="p-3">{precio.toLocaleString("es-ES", {
                 style: "currency",
