@@ -27,7 +27,8 @@ export default async function Paginacion({ promesaCount, page, limit }) {
 
 
             {Array.from({ length: numPages }, (_, i) => i + 1).map((numPage) => (
-                <Link prefetch
+                <Link
+                    prefetch   // Precarga de contenido dinámico
                     key={numPage}
                     href={`/articulos?page=${numPage}&limit=${limit}`}
                     className={`p-2 rounded-md hover:bg-black hover:text-white ${numPage == page ? "bg-black text-white" : ""}`}
