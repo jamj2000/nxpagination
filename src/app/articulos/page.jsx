@@ -35,6 +35,9 @@ export default async function PagArticulos({ searchParams }) {
             </div>
 
 
+            <Suspense fallback={<p>Cargando paginación...</p>}>
+                <Paginacion promesaCount={promesaCount} page={page} limit={limit} />
+            </Suspense>
 
             <Suspense fallback={<p>Cargando artículos...</p>}>
                 <TablaArticulos promesaArticulos={promesaArticulos} />

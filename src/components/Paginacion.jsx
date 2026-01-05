@@ -9,7 +9,7 @@ export default async function Paginacion({ promesaCount, page, limit }) {
     const numPages = Math.ceil(count / limit)
 
     return (
-        <div className="flex justify-center gap-2">
+        <div className="flex justify-center gap-2 py-2">
 
             {page > 1
                 ? (
